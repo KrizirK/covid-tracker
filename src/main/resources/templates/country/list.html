@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:tn="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Poland</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Deaths</th>
+			<th>Recovered</th>
+		</tr>
+		<tr th:each="country : ${countries}">
+			<td th:text="${country.id}">ID</td>
+			<td th:text="${country.deaths}">Deaths</td>
+			<td th:text="${country.recovered}">Recovered</td>
+		</tr>
+	</table>
+</body>
+</html>
