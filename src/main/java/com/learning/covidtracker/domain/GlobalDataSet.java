@@ -11,13 +11,20 @@ public class GlobalDataSet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private Integer newConfirmed;
 	private Integer totalConfirmed;
 	private Integer newDeaths;
 	private Integer totalDeaths;
 	private Integer newRecovered;
 	private Integer totalRecovered;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Integer getNewConfirmed() {
 		return newConfirmed;
@@ -104,6 +111,13 @@ public class GlobalDataSet {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "GlobalDataSet [newConfirmed=" + newConfirmed + ", totalConfirmed=" + totalConfirmed + ", newDeaths="
+				+ newDeaths + ", totalDeaths=" + totalDeaths + ", newRecovered=" + newRecovered + ", totalRecovered="
+				+ totalRecovered + "]";
 	}
 
 }
