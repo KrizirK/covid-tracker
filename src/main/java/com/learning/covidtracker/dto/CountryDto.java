@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CountryDTO implements Serializable {
+public class CountryDto implements Serializable {
 	/**
 	 * 
 	 */
@@ -27,10 +27,10 @@ public class CountryDTO implements Serializable {
 	@JsonProperty(value = "Date")
 	private String date;
 
-	public CountryDTO() {
+	public CountryDto() {
 	}
 
-	public CountryDTO(String country, String countryCode, String status, String deaths, String recovered, String active,
+	public CountryDto(String country, String countryCode, String status, String deaths, String recovered, String active,
 			String date) {
 		super();
 		this.country = country;

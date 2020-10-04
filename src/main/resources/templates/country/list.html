@@ -7,12 +7,10 @@
 <body>
 	<table>
 		<tr>
-			<th>ID</th>
 			<th>Deaths</th>
 			<th>Recovered</th>
 		</tr>
 		<tr th:each="country : ${countries}">
-			<td th:text="${country.id}">ID</td>
 			<td th:text="${country.deaths}">Deaths</td>
 			<td th:text="${country.recovered}">Recovered</td>
 		</tr>
