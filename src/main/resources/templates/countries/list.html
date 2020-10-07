@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:tn="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Countries</title>
+</head>
+<body>
+	<table>
+		<tr>
+
+			<th>Name</th>
+			<th>Slug</th>
+			<th>ISO2</th>
+		</tr>
+		<tr th:each="country : ${countries}">
+			<td th:text="${country.name}">Name</td>
+			<td th:text="${country.slug}">Status</td>
+			<td th:text="${country.iso2}">Deaths</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.learning.covidtracker.dto.CountryDto;
 import com.learning.covidtracker.dto.ReportDto;
 import com.learning.covidtracker.service.TimeService;
 
@@ -27,18 +28,34 @@ public class RestService {
 		this.timeService = timeService;
 	}
 
-	public List<ReportDto> invokeGetFromCountry(String country) {
+	public List<ReportDto> invokeGetForCountry(String country) {
 
 		RestTemplate restTemplate = new RestTemplate();
 
 		log.info("Request for /summary/" + country);
 
 		LocalTime pre = timeService.now();
-		ReportDto[] countryData = restTemplate.getForObject("https://api.covid19api.com/total/country/" + country,
+		ReportDto[] reportData = restTemplate.getForObject("https://api.covid19api.com/total/country/" + country,
 				ReportDto[].class);
 
 		log.info("Finished request for /summary/" + country + " in "
 				+ Duration.between(pre, timeService.now()).toMillis() + " ms");
+
+		return Arrays.asList(reportData);
+	}
+
+	public List<CountryDto> invokeGetForListOfCountries() {
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		log.info("Request for /countries");
+
+		LocalTime pre = timeService.now();
+		CountryDto[] countryData = restTemplate.getForObject("https://api.covid19api.com/countries",
+				CountryDto[].class);
+
+		log.info("Finished request for /countries/" + " in " + Duration.between(pre, timeService.now()).toMillis()
+				+ " ms");
 
 		return Arrays.asList(countryData);
 	}

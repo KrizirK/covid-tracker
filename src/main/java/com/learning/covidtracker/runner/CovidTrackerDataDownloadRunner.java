@@ -36,10 +36,14 @@ public class CovidTrackerDataDownloadRunner implements CommandLineRunner {
 		for (String country : initialCountries) {
 
 			log.info("Getting data for country: " + country);
-			dataImportService.importDataByCountryTotal(country);
+			dataImportService.importReportsByCountryTotal(country);
 			log.info("Done getting data for country: " + country);
 
 		}
+
+		log.info("Getting countries list");
+		dataImportService.importCountries();
+		log.info("Done getting countries list");
 
 	}
 

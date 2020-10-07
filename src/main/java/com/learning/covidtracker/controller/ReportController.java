@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +23,7 @@ public class ReportController {
 		this.reportService = reportService;
 	}
 
-	@RequestMapping("/reports/summary")
+	@RequestMapping("/reports")
 	public String getReports(Model model) {
 
 		log.info("Loading summary of countries");
@@ -32,8 +33,8 @@ public class ReportController {
 		return "reports/list";
 	}
 
-	@RequestMapping("/reports")
-	public String getReport(@RequestParam(name = "name") String countryName, Model model) {
+	@RequestMapping("/reports/{countryName}")
+	public String getReport(@PathVariable(value = "countryName") String countryName, Model model) {
 
 		log.info("Loading summary of country: " + countryName);
 		model.addAttribute("reports", reportService.findAllByName(countryName));
