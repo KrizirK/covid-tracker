@@ -11,7 +11,7 @@ public class Country {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String country;
+	private String name;
 	private String countryCode;
 	private String status;
 	private String deaths;
@@ -47,10 +47,10 @@ public class Country {
 	public Country() {
 	}
 
-	public Country(String country, String countryCode, String status, String deaths, String recovered, String active,
+	public Country(String name, String countryCode, String status, String deaths, String recovered, String active,
 			String date) {
 		super();
-		this.country = country;
+		this.name = name;
 		this.countryCode = countryCode;
 		this.status = status;
 		this.deaths = deaths;
@@ -67,12 +67,12 @@ public class Country {
 		this.id = id;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getName() {
+		return name;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCountryCode() {

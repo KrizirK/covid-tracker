@@ -15,7 +15,7 @@ public class CountryMapper {
 	public Country convertDto2Entity(CountryDto countryDto) {
 		Country country = new Country();
 
-		country.setCountry(countryDto.getCountry());
+		country.setName(countryDto.getName());
 		country.setCountryCode(countryDto.getCountryCode());
 		country.setStatus(countryDto.getStatus());
 		country.setDeaths(countryDto.getDeaths());
@@ -35,7 +35,7 @@ public class CountryMapper {
 	public CountryDto convertEntity2Dto(Country country) {
 		CountryDto countryDto = new CountryDto();
 
-		countryDto.setCountry(country.getCountry());
+		countryDto.setName(country.getName());
 		countryDto.setCountryCode(country.getCountryCode());
 		countryDto.setStatus(country.getStatus());
 		countryDto.setDeaths(country.getDeaths());

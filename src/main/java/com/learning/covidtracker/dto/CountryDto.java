@@ -13,7 +13,7 @@ public class CountryDto implements Serializable {
 	private static final long serialVersionUID = 3275385010053544373L;
 
 	@JsonProperty(value = "Country")
-	private String country;
+	private String name;
 	@JsonProperty(value = "CountryCode")
 	private String countryCode;
 	@JsonProperty(value = "Confirmed")
@@ -30,10 +30,10 @@ public class CountryDto implements Serializable {
 	public CountryDto() {
 	}
 
-	public CountryDto(String country, String countryCode, String status, String deaths, String recovered, String active,
+	public CountryDto(String name, String countryCode, String status, String deaths, String recovered, String active,
 			String date) {
 		super();
-		this.country = country;
+		this.name = name;
 		this.countryCode = countryCode;
 		this.status = status;
 		this.deaths = deaths;
@@ -44,20 +44,20 @@ public class CountryDto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Country [country=" + country + ", countryCode=" + countryCode + ", status=" + status + ", deaths="
-				+ deaths + ", recovered=" + recovered + ", active=" + active + ", date=" + date + "]";
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
+		return "Country [country=" + name + ", countryCode=" + countryCode + ", status=" + status + ", deaths=" + deaths
+				+ ", recovered=" + recovered + ", active=" + active + ", date=" + date + "]";
 	}
 
 	public String getCountryCode() {
 		return countryCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setCountryCode(String countryCode) {
