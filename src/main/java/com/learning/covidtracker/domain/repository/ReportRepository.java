@@ -9,5 +9,7 @@ import com.learning.covidtracker.domain.Report;
 
 @Repository
 public interface ReportRepository extends CrudRepository<Report, Long> {
-	List<Report> findByCountryName(String name);
+
+	public List<Report> findAllByCountryName(String name);
+
 }

@@ -15,18 +15,18 @@ public class ReportController {
 
 	protected final Logger log = LoggerFactory.getLogger(getClass());
 
-	private final ReportService countryCaseService;
+	private final ReportService reportService;
 
 	@Autowired
-	public ReportController(ReportService countryService) {
-		this.countryCaseService = countryService;
+	public ReportController(ReportService reportService) {
+		this.reportService = reportService;
 	}
 
 	@RequestMapping("/reports/summary")
 	public String getReports(Model model) {
 
 		log.info("Loading summary of countries");
-		model.addAttribute("reports", countryCaseService.findAll());
+		model.addAttribute("reports", reportService.findAll());
 		log.info("Showing summary of countries");
 
 		return "reports/list";
@@ -36,7 +36,7 @@ public class ReportController {
 	public String getReport(@RequestParam(name = "name") String countryName, Model model) {
 
 		log.info("Loading summary of country: " + countryName);
-		model.addAttribute("reports", countryCaseService.findAllByName(countryName));
+		model.addAttribute("reports", reportService.findAllByName(countryName));
 		log.info("Showing summary of country: " + countryName);
 
 		return "reports/list";

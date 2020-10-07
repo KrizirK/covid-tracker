@@ -11,27 +11,25 @@ import com.learning.covidtracker.service.ReportService;
 @Service
 public class ReportService {
 
-	private final ReportRepository countryRepository;
-	private final ReportMapper countryMapper;
+	private final ReportRepository reportRepository;
+	private final ReportMapper reportMapper;
 
 	@Autowired
-	public ReportService(ReportRepository countryRepository, ReportMapper countryMapper) {
-		this.countryRepository = countryRepository;
-		this.countryMapper = countryMapper;
+	public ReportService(ReportRepository reportRepository, ReportMapper reportMapper) {
+		this.reportRepository = reportRepository;
+		this.reportMapper = reportMapper;
 	}
 
 	public Iterable<ReportDto> findAll() {
-		return countryMapper.convertEntities2Dtos(countryRepository.findAll());
+		return reportMapper.convertEntities2Dtos(reportRepository.findAll());
 	}
 
 	public Iterable<ReportDto> findAllByName(String name) {
-		return countryMapper.convertEntities2Dtos(countryRepository.findByCountryName(name));
+		return reportMapper.convertEntities2Dtos(reportRepository.findAllByCountryName(name));
 	}
-	
-	public void saveAll(Iterable<ReportDto> countriesDto){
-		countryRepository.saveAll(countryMapper.convertDtos2Entities(countriesDto));
+
+	public void saveAll(Iterable<ReportDto> reportsDto) {
+		reportRepository.saveAll(reportMapper.convertDtos2Entities(reportsDto));
 	}
-	
-	
 
 }
