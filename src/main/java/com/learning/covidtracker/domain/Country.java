@@ -4,20 +4,42 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "COUNTRY")
 public class Country {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private String countryCode;
-	private String status;
-	private String deaths;
-	private String recovered;
-	private String active;
-	private String date;
+	private String slug;
+	private String iso2;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+	public String getIso2() {
+		return iso2;
+	}
+
+	public void setIso2(String iso2) {
+		this.iso2 = iso2;
+	}
 
 	@Override
 	public int hashCode() {
@@ -47,80 +69,17 @@ public class Country {
 	public Country() {
 	}
 
-	public Country(String name, String countryCode, String status, String deaths, String recovered, String active,
-			String date) {
+	public Country(Long id, String name, String slug, String iso2) {
 		super();
-		this.name = name;
-		this.countryCode = countryCode;
-		this.status = status;
-		this.deaths = deaths;
-		this.recovered = recovered;
-		this.active = active;
-		this.date = date;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
 		this.name = name;
+		this.slug = slug;
+		this.iso2 = iso2;
 	}
 
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getDeaths() {
-		return deaths;
-	}
-
-	public void setDeaths(String deaths) {
-		this.deaths = deaths;
-	}
-
-	public String getRecovered() {
-		return recovered;
-	}
-
-	public void setRecovered(String recovered) {
-		this.recovered = recovered;
-	}
-
-	public String getActive() {
-		return active;
-	}
-
-	public void setActive(String active) {
-		this.active = active;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	@Override
+	public String toString() {
+		return "Country [name=" + name + ", slug=" + slug + ", iso2=" + iso2 + "]";
 	}
 
 }

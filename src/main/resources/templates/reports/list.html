@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:tn="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Countries</title>
+</head>
+<body>
+	<table>
+		<tr>
+
+			<th>Name</th>
+			<th>Status</th>
+			<th>Deaths</th>
+			<th>Recovered</th>
+			<th>Active</th>
+			<th>Date</th>
+		</tr>
+		<tr th:each="report : ${reports}">
+			<td th:text="${report.countryName}">Name</td>
+			<td th:text="${report.status}">Status</td>
+			<td th:text="${report.deaths}">Deaths</td>
+			<td th:text="${report.recovered}">Recovered</td>
+			<td th:text="${report.active}">Active</td>
+			<td th:text="${report.date}">Date</td>
+		</tr>
+	</table>
+</body>
+</html>

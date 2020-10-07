@@ -11,11 +11,11 @@ public class DataImportService {
 
 	protected final Logger log = LoggerFactory.getLogger(getClass());
 
-	private final CountryService countryService;
+	private final ReportService countryService;
 	private final RestService restService;
 
 	@Autowired
-	public DataImportService(CountryService countryService, RestService restService) {
+	public DataImportService(ReportService countryService, RestService restService) {
 		this.countryService = countryService;
 		this.restService = restService;
 	}

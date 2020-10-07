@@ -8,38 +8,38 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.learning.covidtracker.service.CountryService;
+import com.learning.covidtracker.service.ReportService;
 
 @Controller
-public class CountryController {
+public class ReportController {
 
 	protected final Logger log = LoggerFactory.getLogger(getClass());
 
-	private final CountryService countryService;
+	private final ReportService countryCaseService;
 
 	@Autowired
-	public CountryController(CountryService countryService) {
-		this.countryService = countryService;
+	public ReportController(ReportService countryService) {
+		this.countryCaseService = countryService;
 	}
 
-	@RequestMapping("/countries")
-	public String getGlobalDataSet(Model model) {
+	@RequestMapping("/reports/summary")
+	public String getReports(Model model) {
 
 		log.info("Loading summary of countries");
-		model.addAttribute("countries", countryService.findAll());
+		model.addAttribute("reports", countryCaseService.findAll());
 		log.info("Showing summary of countries");
 
-		return "country/list";
+		return "reports/list";
 	}
 
-	@RequestMapping("/country")
-	public String getGlobalDataSet(@RequestParam(name = "name") String countryName, Model model) {
+	@RequestMapping("/reports")
+	public String getReport(@RequestParam(name = "name") String countryName, Model model) {
 
 		log.info("Loading summary of country: " + countryName);
-		model.addAttribute("countries", countryService.findAllByName(countryName));
+		model.addAttribute("reports", countryCaseService.findAllByName(countryName));
 		log.info("Showing summary of country: " + countryName);
 
-		return "country/list";
+		return "reports/list";
 	}
 
 }

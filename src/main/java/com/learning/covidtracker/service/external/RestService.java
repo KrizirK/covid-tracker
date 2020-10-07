@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.learning.covidtracker.dto.CountryDto;
+import com.learning.covidtracker.dto.ReportDto;
 import com.learning.covidtracker.service.TimeService;
 
 @Service
@@ -27,15 +27,15 @@ public class RestService {
 		this.timeService = timeService;
 	}
 
-	public List<CountryDto> invokeGetFromCountry(String country) {
+	public List<ReportDto> invokeGetFromCountry(String country) {
 
 		RestTemplate restTemplate = new RestTemplate();
 
 		log.info("Request for /summary/" + country);
 
 		LocalTime pre = timeService.now();
-		CountryDto[] countryData = restTemplate.getForObject("https://api.covid19api.com/total/country/" + country,
-				CountryDto[].class);
+		ReportDto[] countryData = restTemplate.getForObject("https://api.covid19api.com/total/country/" + country,
+				ReportDto[].class);
 
 		log.info("Finished request for /summary/" + country + " in "
 				+ Duration.between(pre, timeService.now()).toMillis() + " ms");

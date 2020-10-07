@@ -16,12 +16,8 @@ public class CountryMapper {
 		Country country = new Country();
 
 		country.setName(countryDto.getName());
-		country.setCountryCode(countryDto.getCountryCode());
-		country.setStatus(countryDto.getStatus());
-		country.setDeaths(countryDto.getDeaths());
-		country.setRecovered(countryDto.getRecovered());
-		country.setActive(countryDto.getActive());
-		country.setDate(countryDto.getDate());
+		country.setSlug(countryDto.getSlug());
+		country.setIso2(countryDto.getIso2());
 
 		return country;
 	}
@@ -36,12 +32,8 @@ public class CountryMapper {
 		CountryDto countryDto = new CountryDto();
 
 		countryDto.setName(country.getName());
-		countryDto.setCountryCode(country.getCountryCode());
-		countryDto.setStatus(country.getStatus());
-		countryDto.setDeaths(country.getDeaths());
-		countryDto.setRecovered(country.getRecovered());
-		countryDto.setActive(country.getActive());
-		countryDto.setDate(country.getDate());
+		countryDto.setSlug(country.getSlug());
+		countryDto.setIso2(country.getIso2());
 
 		return countryDto;
 	}
