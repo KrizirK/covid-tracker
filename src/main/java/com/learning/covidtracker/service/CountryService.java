@@ -4,12 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learning.covidtracker.domain.repository.CountryRepository;
-import com.learning.covidtracker.domain.repository.ReportRepository;
 import com.learning.covidtracker.dto.CountryDto;
-import com.learning.covidtracker.dto.ReportDto;
 import com.learning.covidtracker.dto.mapper.CountryMapper;
-import com.learning.covidtracker.dto.mapper.ReportMapper;
-import com.learning.covidtracker.service.CountryService;
 
 @Service
 public class CountryService {
