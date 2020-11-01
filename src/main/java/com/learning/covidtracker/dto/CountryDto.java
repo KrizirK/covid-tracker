@@ -59,4 +59,41 @@ public class CountryDto implements Serializable {
 		this.iso2 = iso2;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((iso2 == null) ? 0 : iso2.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((slug == null) ? 0 : slug.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CountryDto other = (CountryDto) obj;
+		if (iso2 == null) {
+			if (other.iso2 != null)
+				return false;
+		} else if (!iso2.equals(other.iso2))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (slug == null) {
+			if (other.slug != null)
+				return false;
+		} else if (!slug.equals(other.slug))
+			return false;
+		return true;
+	}
+
 }

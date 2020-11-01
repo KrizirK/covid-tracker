@@ -104,4 +104,65 @@ public class ReportDto implements Serializable {
 		this.countryName = countryName;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((active == null) ? 0 : active.hashCode());
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
+		result = prime * result + ((countryName == null) ? 0 : countryName.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((deaths == null) ? 0 : deaths.hashCode());
+		result = prime * result + ((recovered == null) ? 0 : recovered.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReportDto other = (ReportDto) obj;
+		if (active == null) {
+			if (other.active != null)
+				return false;
+		} else if (!active.equals(other.active))
+			return false;
+		if (countryCode == null) {
+			if (other.countryCode != null)
+				return false;
+		} else if (!countryCode.equals(other.countryCode))
+			return false;
+		if (countryName == null) {
+			if (other.countryName != null)
+				return false;
+		} else if (!countryName.equals(other.countryName))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (deaths == null) {
+			if (other.deaths != null)
+				return false;
+		} else if (!deaths.equals(other.deaths))
+			return false;
+		if (recovered == null) {
+			if (other.recovered != null)
+				return false;
+		} else if (!recovered.equals(other.recovered))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		return true;
+	}
+
 }

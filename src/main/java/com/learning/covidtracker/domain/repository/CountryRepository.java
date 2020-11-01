@@ -11,4 +11,6 @@ import com.learning.covidtracker.domain.Country;
 public interface CountryRepository extends CrudRepository<Country, Long> {
 
 	public List<Country> findAllByName(String name);
+
+	public Country findByName(String name);
 }

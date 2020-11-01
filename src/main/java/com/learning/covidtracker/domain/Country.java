@@ -69,9 +69,8 @@ public class Country {
 	public Country() {
 	}
 
-	public Country(Long id, String name, String slug, String iso2) {
+	public Country(String name, String slug, String iso2) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.slug = slug;
 		this.iso2 = iso2;
